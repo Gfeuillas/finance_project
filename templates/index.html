@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Loan_Status</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	
+
+    
+        <SELECT name="Never_Credit" size="3">
+            <OPTION>1</OPTION>
+            <OPTION>0</OPTION>
+        </SELECT>
+        <input type="number" step="any" name="ApplicantIncome" placeholder="Applicant Income" required="required" /> 
+        <input type="number" step="any" name="CoapplicantIncome" placeholder="Co-applicant Income" required="required" />         
+		<input type="number" step="any" name="LoanAmount" placeholder="Loan Amount" required="required" />
+        <SELECT name="Loan_Amount_Term" size="3">
+            <OPTION>360</OPTION>
+            <OPTION>300</OPTION>
+            <OPTION>480</OPTION>
+            <OPTION>180</OPTION>
+            <OPTION>120</OPTION>
+            <OPTION>240</OPTION>
+        </SELECT>
+            
+        <input type="number" step="any" name="Family_Member" placeholder="Number of family" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
