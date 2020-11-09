@@ -13,20 +13,33 @@
 
 <body>
  <div class="login">
-	<h1>Loan_Status</h1>
+	<h1>Autorisation de prêt:</h1>
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
     	
 
-    
+        <label for="Never_Credit">Avez-vous déjà eu un défaut de crédit (0: non , 1: Oui): </label>
         <SELECT name="Never_Credit" size="3">
+            
             <OPTION>1</OPTION>
             <OPTION>0</OPTION>
         </SELECT>
-        <input type="number" step="any" name="ApplicantIncome" placeholder="Applicant Income" required="required" /> 
-        <input type="number" step="any" name="CoapplicantIncome" placeholder="Co-applicant Income" required="required" />         
+        <br>
+        <br>
+        <label for="ApplicantIncome">Votre income personnel :</label>
+        <input type="number" step="any" name="ApplicantIncome" placeholder="Applicant Income" required="required" />
+        <br>
+        <br>
+        <label for="CoapplicantIncome">L'income de votre conjoint(e)</label>
+        <input type="number" step="any" name="CoapplicantIncome" placeholder="Co-applicant Income" required="required" />
+        <br>
+        <br>
+        <label for="LoanAmount">Montant de l'emprunt désiré</label>
 		<input type="number" step="any" name="LoanAmount" placeholder="Loan Amount" required="required" />
+        <br>
+        <br>
+        <label for ="Loan_Amount_Term">Mensualité :</label>
         <SELECT name="Loan_Amount_Term" size="3">
             <OPTION>360</OPTION>
             <OPTION>300</OPTION>
@@ -35,9 +48,13 @@
             <OPTION>120</OPTION>
             <OPTION>240</OPTION>
         </SELECT>
-            
+        
+        <br>
+        <br>
+        <label for="Family_Member">Nombre de membre dans la famille:</label>
         <input type="number" step="any" name="Family_Member" placeholder="Number of family" required="required" />
-
+        <br>
+        <br>
         <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
     </form>
 
